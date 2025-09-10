@@ -6,6 +6,7 @@ Django applications, so these settings will not be used.
 """
 
 from os.path import abspath, dirname, join
+import os
 
 
 def root(*args):
@@ -53,3 +54,9 @@ MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
 )
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'application', 'static'),
+]
